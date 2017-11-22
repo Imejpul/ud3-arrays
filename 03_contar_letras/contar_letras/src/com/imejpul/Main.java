@@ -6,12 +6,17 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void visualizar_recuento(int recuento[], int cantLetras, int letra_ascii) {
+
+    final static int NUM = 26;
+    final static int INICIO_ABC = 97;
+
+
+    public static void visualizar_recuento(int recuento[]) {
 
         System.out.println("Cantidad de cada letra: ");
 
-        for (int i = 0; i < cantLetras; i++, letra_ascii++) {
-            char letra = (char) letra_ascii;
+        for (int i = 0; i < recuento.length; i++) {
+            char letra = (char) (i+INICIO_ABC);
 
             if (recuento[i] > 0) {
                 System.out.println("Letra " + letra + ": " + recuento[i]);
@@ -23,8 +28,6 @@ public class Main {
 
     public static void contarLetras(String texto) {
 
-        final int NUM = 26;
-        final int INICIO_ABC = 97;
 
         char base = (char) INICIO_ABC;
 
@@ -41,7 +44,7 @@ public class Main {
             }
 
         }
-        visualizar_recuento(recuentoLetra, NUM, INICIO_ABC);
+        visualizar_recuento(recuentoLetra);
     }
 
     public static void main(String[] args) throws IOException {

@@ -12,7 +12,7 @@ public class Main {
         final int MATRIZ_LINE_SIZE = 2;
         final int MATRIZ_ROW_SIZE = 2;
 
-        int[][] matriz_numeros = new int[5][5];
+        int[][] matriz_numeros = new int[MATRIZ_LINE_SIZE][MATRIZ_ROW_SIZE];
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
                 matriz_numeros[i][j] = 0;
