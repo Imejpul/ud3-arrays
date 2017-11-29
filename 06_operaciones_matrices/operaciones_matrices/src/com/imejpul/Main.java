@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class Main {
 
-    final static int MATRIZ_LINE_SIZE = 4;
-    final static int MATRIZ_ROW_SIZE = 4;
+    final static int MATRIZ_LINE_SIZE = 2;
+    final static int MATRIZ_ROW_SIZE = 2;
 
     public static void visualizarMatriz(int matriz[][]) {
 
@@ -16,7 +16,7 @@ public class Main {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
                 System.out.format("%d ", matriz[i][j]);
             }
-            System.out.println();
+            System.out.println("\n");
         }
     }
 
@@ -31,11 +31,7 @@ public class Main {
 
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
-                for (int k = 0; k < MATRIZ_LINE_SIZE; k++) {
-                    for (int l = 0; l < MATRIZ_ROW_SIZE; l++) {
-                        sumaMatrices[i][j] = matrizUno[k][l] + matrizDos[k][l];
-                    }
-                }
+                sumaMatrices[i][j] = matrizUno[i][j] + matrizDos[i][j];
             }
         }
 
@@ -53,11 +49,7 @@ public class Main {
 
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
-                for (int k = 0; k < MATRIZ_LINE_SIZE; k++) {
-                    for (int l = 0; l < MATRIZ_ROW_SIZE; l++) {
-                        matrizProductoEscalar[i][j] = matriz[k][l] * valorEscalar;
-                    }
-                }
+                matrizProductoEscalar[i][j] = matriz[i][j] * valorEscalar;
             }
         }
 
@@ -66,24 +58,22 @@ public class Main {
 
     public static void productoMatrices(int matrizUno[][], int matrizDos[][]) {
 
-        int[][] prodcutoMatrices = new int[MATRIZ_LINE_SIZE][MATRIZ_ROW_SIZE];
+        int[][] productoMatrices = new int[MATRIZ_LINE_SIZE][MATRIZ_ROW_SIZE];
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
-                prodcutoMatrices[i][j] = 0;
+                productoMatrices[i][j] = 0;
             }
         }
 
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
-                for (int k = 0; k < MATRIZ_LINE_SIZE; k++) {
-                    for (int l = 0; l < MATRIZ_ROW_SIZE; l++) {
-                        prodcutoMatrices[i][j] = matrizUno[k][l] * matrizDos[k][l];
-                    }
+                for (int k = 0; k < MATRIZ_ROW_SIZE; k++) {
+                    productoMatrices[i][j] += matrizUno[i][j] * matrizDos[k][j];
                 }
             }
         }
 
-        visualizarMatriz(prodcutoMatrices);
+        visualizarMatriz(productoMatrices);
     }
 
     public static void traspuesta(int matriz[][]) {
@@ -97,11 +87,7 @@ public class Main {
 
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
-                for (int k = 0; k < MATRIZ_LINE_SIZE; k++) {
-                    for (int l = 0; l < MATRIZ_ROW_SIZE; l++) {
-                        matrizTraspuesta[i][j] = matriz[l][k];
-                    }
-                }
+                matrizTraspuesta[i][j] = matriz[j][i];
             }
         }
 
@@ -124,8 +110,12 @@ public class Main {
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
                 matriz_numeros1[i][j] = r.nextInt(100);
+                System.out.print(matriz_numeros1[i][j] + " ");
             }
+            System.out.println();
         }
+
+        System.out.println();
 
         int[][] matriz_numeros2 = new int[MATRIZ_LINE_SIZE][MATRIZ_ROW_SIZE];
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
@@ -137,10 +127,12 @@ public class Main {
         for (int i = 0; i < MATRIZ_LINE_SIZE; i++) {
             for (int j = 0; j < MATRIZ_ROW_SIZE; j++) {
                 matriz_numeros2[i][j] = r.nextInt(100);
+                System.out.print(matriz_numeros2[i][j] + " ");
             }
+            System.out.println();
         }
 
-        System.out.println("Operaciones con matrices: ");
+        System.out.println("\n Operaciones con matrices: ");
 
         System.out.println("Suma de dos matrices aleatorias: ");
         sumaMatrices(matriz_numeros1,matriz_numeros2);
