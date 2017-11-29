@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class Main {
 
-    final static int MATRIZ_LINE_SIZE = 2;
-    final static int MATRIZ_ROW_SIZE = 2;
+    final static int MATRIZ_LINE_SIZE = 4;
+    final static int MATRIZ_ROW_SIZE = 4;
 
     public static void visualizarMatriz(int matriz[][]) {
 
