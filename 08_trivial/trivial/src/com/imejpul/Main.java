@@ -3,6 +3,7 @@ package com.imejpul;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class Main {
 
@@ -63,14 +64,17 @@ public class Main {
         preguntasRespuestas(preguntas, respuestas);
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Random r = new Random();
         String confirmacion;
         System.out.println("---TRIVIAL---");
 
         do {
             System.out.println("Pregunta: ");
-            int line = (int) (Math.random()*2+0);
-            int row = (int) (Math.random()*2+0);
+
+            int row = r.nextInt(2);
+            int line = r.nextInt(2);
             System.out.println(preguntas[line][row]);
+
             int acierto_uno = 0;
             int fallo_uno = 0;
 
